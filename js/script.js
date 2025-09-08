@@ -9,3 +9,27 @@
 // BONUS:
 // Inseriamo la validazione: se l'utente mette due numeri uguali o inserisce cose diverse da numeri lo blocchiamo in qualche modo.
 // Se l’utente ha inserito qualcosa di non valido, segnaliamolo visivamente nel form.
+
+
+
+
+//selezioniamo l'elemento per il contdown della pagina
+const countDownPage = document.getElementById("countdown");
+
+
+//creo una variabile di riferimento per il timer del contdown
+let timer;
+
+//richiamiamo la funzione per il contdown 
+contdownStart(countDownPage);
+
+//creiamo una funzione per il contdown in pagina
+function contdownStart(contatore){
+    //variabile di conteggio
+    let count = 30;
+
+    //incrementiamo la variabile count e facciamo l'output in pagina
+    timer = setInterval(()=> {
+        countDownPage.innerHTML = count--;
+    }, 1000);
+}
