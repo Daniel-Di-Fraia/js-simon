@@ -23,13 +23,21 @@ let timer;
 //richiamiamo la funzione per il contdown 
 contdownStart(countDownPage);
 
+
+
+
+
+
 //creiamo una funzione per il contdown in pagina
 function contdownStart(contatore){
     //variabile di conteggio
-    let count = 30;
+    let count = 5;
 
     //incrementiamo la variabile count e facciamo l'output in pagina
     timer = setInterval(()=> {
         countDownPage.innerHTML = count--;
+        if(count === -1){
+            clearInterval(timer);
+        }
     }, 1000);
 }
