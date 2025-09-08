@@ -12,10 +12,14 @@
 
 
 
-//COUNTDOWN
+
 
 //selezioniamo l'elemento per il contdown della pagina
 const countDownPage = document.getElementById("countdown");
+//selezioniamo la lista dove usciranno in output i 5 numeri casuali
+const numberList = document.getElementById("numbers-list");
+//selezioniamo il form della pagina per le risposte allo scadere del timer
+const formRisposte = document.getElementById("answers-form");
 
 //creo una variabile di riferimento per il timer del contdown
 let timer;
@@ -23,25 +27,7 @@ let timer;
 //richiamiamo la funzione per il contdown 
 contdownStart(countDownPage);
 
-//creiamo una funzione per il contdown in pagina
-function contdownStart(contatore){
-    //variabile di conteggio
-    let count = 30;
-
-    //incrementiamo la variabile count e facciamo l'output in pagina
-    timer = setInterval(()=> {
-        countDownPage.innerHTML = count--;
-        if(count === -1){
-            clearInterval(timer);
-        }
-    }, 1000);
-}
-
 //ARRAY numeri casuali
-
-//selezioniamo la lista dove usciranno in output i 5 numeri casuali
-const numberList = document.getElementById("numbers-list");
-
 //creiamo una variabile array per i li
 arrayLi = [];
 
@@ -62,10 +48,32 @@ for(let i = 0; i < 5; i++){
     }   
 }
 
+
+
+//FUNZIONI
+
+//creiamo una funzione per il contdown in pagina
+function contdownStart(contatore){
+    //variabile di conteggio
+    let count = 30;
+
+    //incrementiamo la variabile count e facciamo l'output in pagina
+    timer = setInterval(()=> {
+        countDownPage.innerHTML = count--;
+        if(count === -1){
+            clearInterval(timer);
+        }
+    }, 1000);
+}
+
+
 //creiamo una funzione per generare un numero random da 1 a 100
 function randomNum(min,max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+
+
 
 
 
