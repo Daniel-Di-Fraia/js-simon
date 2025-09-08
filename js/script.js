@@ -70,13 +70,14 @@ formRisposte.addEventListener("submit",
         for(let i = 0; i < 5; i++){
             // inseriamo gli input all interno del nuovo arrayRisp
             let currentNum = parseInt(inputElement[i].value);
-            // console.log(currentNum);
+            //pushamo all interno del nuovo array solo i numeri con esito true al confronto con l arrayLi (nRandom)
             if(arrayLi.includes(currentNum)){
                 arrayRisp.push(currentNum);
             }
         }
+        //stabiliamo quali e quanti numeri ha indovinato l'utente
         if(arrayRisp.length === 5){
-            mioP.innerHTML = `Bravo! Hai indovinato tutti i numeri!`;
+            mioP.innerHTML = `Bravo! Hai indovinato tutti i numeri! e sono: ${arrayRisp}`;
         } else if(arrayRisp.length === 0){
             mioP.innerHTML = `Non hai indovinato neanche un numero!`
         } else
@@ -85,14 +86,12 @@ formRisposte.addEventListener("submit",
     }
 );
 
-
-
 //FUNZIONI
 
 //creiamo una funzione per il contdown in pagina
 function contdownStart(contatore){
     //variabile di conteggio
-    let count = 1;
+    let count = 30;
 
     //incrementiamo la variabile count e facciamo l'output in pagina
     timer = setInterval(()=> {
@@ -105,7 +104,6 @@ function contdownStart(contatore){
         }
     }, 1000);
 }
-
 
 //creiamo una funzione per generare un numero random da 1 a 100
 function randomNum(min,max) {
